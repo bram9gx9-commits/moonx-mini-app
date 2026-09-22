@@ -76,3 +76,16 @@
   <div>🌙</div>
 
 </div>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script>
+  const tg = window.Telegram.WebApp;
+
+  tg.ready();
+  tg.expand();
+
+  if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    const user = tg.initDataUnsafe.user;
+    console.log("MOONX Telegram User:", user.id, user.first_name);
+  }
+</script>
