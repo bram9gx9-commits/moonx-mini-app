@@ -84,8 +84,21 @@
   tg.ready();
   tg.expand();
 
-  if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const user = tg.initDataUnsafe.user;
-    console.log("MOONX Telegram User:", user.id, user.first_name);
+  const user = tg.initDataUnsafe?.user;
+
+  if (user) {
+    const name = user.first_name || "User";
+    const username = user.username ? "@" + user.username : "No username";
+
+    const usernameElement = document.getElementById("username");
+    const userIdElement = document.getElementById("userId");
+
+    if (usernameElement) {
+      usernameElement.textContent = name;
+    }
+
+    if (userIdElement) {
+      userIdElement.textContent = username;
+    }
   }
 </script>
